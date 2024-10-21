@@ -10,6 +10,7 @@ export const useUserStore = defineStore('user', {
         routes: [],
         menuList: [],
         userInfo: {},
+        menuAll: []
     }),
     actions: {
         async setRoutes() {
@@ -18,7 +19,8 @@ export const useUserStore = defineStore('user', {
             nextTick(async () => {
                 // 构建树形结构
                 this.menuList = await this.generateMenuTree(this.routes, 0)
-                console.log(this.menuList, 6666)
+                this.menuAll = this.routes
+                this.hasRoutes = true
             })
         },
         async generateMenuTree(menuList, parent_id) {

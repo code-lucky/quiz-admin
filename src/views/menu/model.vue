@@ -64,7 +64,7 @@
         hide: 0,
     })
     const route = useRoute()
-    const id = route.query.id
+    const id = Number(route.query.id) ? Number(route.query.id) : 0
     const formRef = ref(null)
     const iconList = ref([])
     const iconDialog = ref(false)
@@ -116,7 +116,7 @@
         formRef.value.validate(valid => {
             if (valid) {
                 if (id) {
-                    form.value.id = Number(id)
+                    form.value.id = id
                     updateMenu(form.value).then(res => {
                         if (res.code === 200) {
                             ElMessage.success('Save success')

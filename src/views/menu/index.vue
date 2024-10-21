@@ -58,7 +58,7 @@
 
     const handleAdd = () => {
         router.push({
-            path: '/menu/menu-model'
+            path: '/menu/model'
         })
     }
 
@@ -83,7 +83,7 @@
     }
 
     const handleEdit = (index, row) =>{
-        router.push(`/menu/menu-model?id=${row.id}`)
+        router.push(`/menu/model?id=${row.id}`)
     }
 
     onMounted(() => {
